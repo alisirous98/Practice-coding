@@ -24,11 +24,14 @@ model_outputs = classifier(sentences)
 print(model_outputs[0]) # produces a list of dicts for each of the labels
 
 # to see what labels the dataset provides
+labels = []
 for item in model_outputs[0]:
-        print(item["label"])
+        labels.append(item["label"])
+        
+print(", ".join(labels))
 # To see the score for a the specific label "sadness"
 for item in model_outputs[0]:
-    if item["label"] == "admiration":
-        print(f"the admiration score for this content is {item['score']}")
+    if item["label"] == "sadness":
+        print(f"the sadness score for this content is {item['score']}")
         break
     
